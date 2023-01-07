@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="768d950f-4bc2-461d-9528-7f700b765f47" name="Changes" comment="Draft Version:&#10;-- Реализовано чтение&#10;-- Реализован аналог датакласса&#10;-- Реализован враппер в виде хэшмапы на этот аналог&#10;--&#10;&#10;Не реализовано: &#10;-- Вывод лучших акций. &#10;-- Нет проверки на то, что облигации малину не портят (возможно колонки замиксовались)">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ticketInfo.java" afterDir="false" />
+    <list default="true" id="768d950f-4bc2-461d-9528-7f700b765f47" name="Changes" comment=".gitignore: добавлены resources">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DataProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DataProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,13 +86,40 @@
       <option name="project" value="LOCAL" />
       <updated>1672958624340</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Реализовано:&#10;-- Компаратор&#10;-- Вывод лучших акций&#10;-- Вывод худших &#10;Не реализовано:&#10;-- Нет проверки на то, что облигации малину не портят (возможно колонки замиксовались)">
+      <created>1673135405740</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1673135405740</updated>
+    </task>
+    <task id="LOCAL-00005" summary=".gitignore: добавлены resources">
+      <created>1673135524176</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1673135524176</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Short Data prepared" />
     <MESSAGE value="Draft Version:&#10;-- Реализовано чтение&#10;-- Реализован аналог датакласса&#10;-- Реализован враппер в виде хэшмапы на этот аналог&#10;--&#10;&#10;Не реализовано: &#10;-- Вывод лучших акций. &#10;-- Нет проверки на то, что облигации малину не портят (возможно колонки замиксовались)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Draft Version:&#10;-- Реализовано чтение&#10;-- Реализован аналог датакласса&#10;-- Реализован враппер в виде хэшмапы на этот аналог&#10;--&#10;&#10;Не реализовано: &#10;-- Вывод лучших акций. &#10;-- Нет проверки на то, что облигации малину не портят (возможно колонки замиксовались)" />
+    <MESSAGE value="Реализовано:&#10;-- Компаратор&#10;-- Вывод лучших акций&#10;-- Вывод худших &#10;Не реализовано:&#10;-- Нет проверки на то, что облигации малину не портят (возможно колонки замиксовались)" />
+    <MESSAGE value=".gitignore: добавлены resources" />
+    <option name="LAST_COMMIT_MESSAGE" value=".gitignore: добавлены resources" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
