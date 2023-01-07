@@ -5,5 +5,6 @@ public class Main {
         System.out.println("---------------------");
         var processor = new DataProcessor();
         processor.ReadFileByLine();
+        System.out.println("Program finished successfully");
     }
 }

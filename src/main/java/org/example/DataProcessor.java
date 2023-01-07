@@ -1,20 +1,14 @@
 package org.example;
-
 import org.jetbrains.annotations.NotNull;
-
 import java.io.*;
 import java.util.*;
-
 
 public class DataProcessor {
     private static final List<String> supportedMarkets = List.of("TQBR", "FQBR");
     private static final String fileName = "/home/daniil/IdeaProjects/SpecialCurse/src/main/resources/trades.txt";
 
-
     public void ReadFileByLine() {
-
         // Open the file
-
         FileInputStream fstream = null;
         try {
             fstream = new FileInputStream(fileName);
@@ -22,18 +16,19 @@ public class DataProcessor {
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
-        BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
-        //Read File Line By Line
 
-        Tickers tickersProcessor = new Tickers();
+        BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
+        //Read File Line By Line and process it:
+        TickersMap tickersProcessor = new TickersMap();
         br.lines().skip(1)
                 .forEach(tickersProcessor::put);
-//                .forEach(line -> System.out.println(line.split("\t")[0]));
-
 
         // Show results
+        System.out.println("Best tickers are: ");
         tickersProcessor.showBest(10);
-
+        System.out.println("Worst tickers are: ");
+        tickersProcessor.showWorst(10);
+//        tickersProcessor.showAll();
 
         //Close the input stream
         try {
@@ -43,7 +38,7 @@ public class DataProcessor {
         }
     }
 
-    static class tickerInfo {
+    static class tickerInfo implements Comparable <tickerInfo> {
         String ticker;
         String market;
         Double minPrice;
@@ -105,11 +100,29 @@ public class DataProcessor {
             }
         }
 
+        public double getIncrement(){
+            return lastPrice/firstPrice - 1.;
+        }
+        @Override
+        public int compareTo(@NotNull DataProcessor.tickerInfo otherTicker) {
+            return Double.compare(getIncrement(), otherTicker.getIncrement());
+        }
 
+        @Override
+        public String toString() {
+            String result = String.format("Ticker: %s: %n   " +
+                    "IntraDay Increment%%: %.2f%n   " +
+                    "Turnover: %.2f%n   " +
+                    "firstPrice: %.2f%n   " +
+                    "lastPrice: %.2f%n" +
+                    "------------------------------------------------"
+                    , ticker, (lastPrice/firstPrice - 1)*100., tradeAmount, firstPrice, lastPrice);
+            return result;
+        }
     }
 
 
-    private class Tickers {
+    private class TickersMap {
         HashMap<String, tickerInfo> tickersMap = new HashMap<>();
 
         public void put(String fileLine) {
@@ -131,17 +144,25 @@ public class DataProcessor {
         }
 
         public void showBest(int numberBest) {
-            SortedSet<tickerInfo> values = new TreeSet<>(tickersMap.values());
-            int i = 0;
-            for (Iterator<tickerInfo> iter = values.iterator(); iter.hasNext();) {
-                i+=1;
-                if (i<numberBest) {
-                    return;
-                }
-                tickerInfo ticker = (tickerInfo) iter;
-                System.out.println(ticker);
+            List<tickerInfo> values = new ArrayList<>(tickersMap.values());
+            Collections.sort(values);
+            Collections.reverse(values);
+            for (int i=0; i < Integer.min(numberBest, values.size()); i++){
+                System.out.println(values.get(i));
             }
         }
-
+        public void showWorst(int numberBest) {
+            List<tickerInfo> values = new ArrayList<>(tickersMap.values());
+            Collections.sort(values);
+            for (int i=0; i < Integer.min(numberBest, values.size()); i++){
+                System.out.println(values.get(i));
+            }
+        }
+        public void showAll() {
+            List<tickerInfo> values = new ArrayList<>(tickersMap.values());
+            for (int i=0; i < values.size(); i++){
+                System.out.println(values.get(i));
+            }
+        }
     }
 }
