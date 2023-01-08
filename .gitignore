@@ -1,6 +1,9 @@
-target/
+  ### resources ###
 src/main/resources/trades.txt
 src/main/resources/t.txt
+
+
+target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
