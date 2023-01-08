@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="768d950f-4bc2-461d-9528-7f700b765f47" name="Changes" comment=".gitignore: добавлены resources">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="768d950f-4bc2-461d-9528-7f700b765f47" name="Changes" comment=".gitignore: добавлены resources v5">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -100,7 +99,77 @@
       <option name="project" value="LOCAL" />
       <updated>1673135524176</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary=".gitignore: добавлены resources">
+      <created>1673135733787</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1673135733787</updated>
+    </task>
+    <task id="LOCAL-00007" summary=".gitignore: добавлены resources v2">
+      <created>1673135791089</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1673135791089</updated>
+    </task>
+    <task id="LOCAL-00008" summary=".gitignore: добавлены resources v3">
+      <created>1673135821819</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1673135821819</updated>
+    </task>
+    <task id="LOCAL-00009" summary=".gitignore: добавлены resources v3">
+      <created>1673135858850</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1673135858850</updated>
+    </task>
+    <task id="LOCAL-00010" summary=".gitignore: добавлены resources v3">
+      <created>1673135896212</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1673135896212</updated>
+    </task>
+    <task id="LOCAL-00011" summary=".gitignore: добавлены resources v3">
+      <created>1673135942903</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1673135942903</updated>
+    </task>
+    <task id="LOCAL-00012" summary=".gitignore: добавлены resources v4">
+      <created>1673136110652</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1673136110652</updated>
+    </task>
+    <task id="LOCAL-00013" summary=".gitignore: добавлены resources v4">
+      <created>1673136176563</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1673136176563</updated>
+    </task>
+    <task id="LOCAL-00014" summary=".gitignore: добавлены resources v5">
+      <created>1673136342057</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1673136342057</updated>
+    </task>
+    <task id="LOCAL-00015" summary=".gitignore: добавлены resources v5">
+      <created>1673136420027</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1673136420027</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -119,7 +188,11 @@
     <MESSAGE value="Draft Version:&#10;-- Реализовано чтение&#10;-- Реализован аналог датакласса&#10;-- Реализован враппер в виде хэшмапы на этот аналог&#10;--&#10;&#10;Не реализовано: &#10;-- Вывод лучших акций. &#10;-- Нет проверки на то, что облигации малину не портят (возможно колонки замиксовались)" />
     <MESSAGE value="Реализовано:&#10;-- Компаратор&#10;-- Вывод лучших акций&#10;-- Вывод худших &#10;Не реализовано:&#10;-- Нет проверки на то, что облигации малину не портят (возможно колонки замиксовались)" />
     <MESSAGE value=".gitignore: добавлены resources" />
-    <option name="LAST_COMMIT_MESSAGE" value=".gitignore: добавлены resources" />
+    <MESSAGE value=".gitignore: добавлены resources v2" />
+    <MESSAGE value=".gitignore: добавлены resources v3" />
+    <MESSAGE value=".gitignore: добавлены resources v4" />
+    <MESSAGE value=".gitignore: добавлены resources v5" />
+    <option name="LAST_COMMIT_MESSAGE" value=".gitignore: добавлены resources v5" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
