@@ -1,6 +1,6 @@
 target/
-./src/main/resources/trades.txt
-./src/main/resources/t.txt
+/home/daniil/IdeaProjects/SpecialCurse/src/main/resources/trades.txt
+/home/daniil/IdeaProjects/SpecialCurse/src/main/resources/t.txt
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
