@@ -1,4 +1,6 @@
 # SpecialCurse
+Для более удобного просмотра документа рекомендую воспользоваться не github, а, например, dillinger.io - сервис позволит свернуть поля с результами по задачам)
+
 
 ## MoexParser:
 Intraday Increment:= (lastPrice/firstPrice - 1.), где firstPrice - первая цена по дате, lastPrice - --//--
