@@ -1,4 +1,4 @@
-package org.example;
+package org.example.moex_parser;
 
 import org.jetbrains.annotations.NotNull;
 
