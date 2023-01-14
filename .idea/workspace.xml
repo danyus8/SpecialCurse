@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="768d950f-4bc2-461d-9528-7f700b765f47" name="Changes" comment="Code refactored/ Repository Refactored">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/another_task/another_task.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/gameFifteen/FifteenPuzzle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="768d950f-4bc2-461d-9528-7f700b765f47" name="Changes" comment="Сделал пятнашки">
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/gameFifteen/FifteenPuzzle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/gameFifteen/FifteenPuzzle.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -200,7 +198,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673695847211</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Сделал пятнашки">
+      <created>1673698989013</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1673698989013</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -226,7 +231,8 @@
     <MESSAGE value="workspace updated" />
     <MESSAGE value="Code refactored" />
     <MESSAGE value="Code refactored/ Repository Refactored" />
-    <option name="LAST_COMMIT_MESSAGE" value="Code refactored/ Repository Refactored" />
+    <MESSAGE value="Сделал пятнашки" />
+    <option name="LAST_COMMIT_MESSAGE" value="Сделал пятнашки" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

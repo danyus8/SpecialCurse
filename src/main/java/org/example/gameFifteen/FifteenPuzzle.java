@@ -103,7 +103,7 @@ public class FifteenPuzzle {
     }
 
     public void show() {
-        System.out.println("-----------------");
+        System.out.println("============  ");
         for(int i=0; i<DIMS; i++) {
             System.out.print("| ");
             for(int j=0; j<DIMS; j++) {
@@ -121,7 +121,7 @@ public class FifteenPuzzle {
             }
             System.out.print("\n");
         }
-        System.out.print("-----------------\n\n");
+        System.out.print("============  \n\n");
     }
 
 
@@ -232,10 +232,10 @@ public class FifteenPuzzle {
             FifteenPuzzle candidate = toVisit.remove();
             cnt++;
             if( cnt % 10000 == 0) {
-                System.out.printf("Considered %,d positions. Queue = %,d\n", cnt, toVisit.size());
+                System.out.printf("Considered %,d positions. Queue = %,d  \n", cnt, toVisit.size());
             }
             if( candidate.isSolved() ) {
-                System.out.printf("Solution considered %d boards\n", cnt);
+                System.out.printf("Solution considered %d boards  \n", cnt);
                 LinkedList<FifteenPuzzle> solution = new LinkedList<>();
                 FifteenPuzzle backtrace=candidate;
                 while( backtrace != null ) {
@@ -260,25 +260,25 @@ public class FifteenPuzzle {
 
     private static void showSolution(List<FifteenPuzzle> solution) {
         if (solution != null ) {
-            System.out.printf("Success!  Solution with %d moves:\n", solution.size());
+            System.out.printf("Success!  Solution with %d moves:  \n", solution.size());
             for( FifteenPuzzle sp: solution) {
                 sp.show();
             }
         } else {
-            System.out.println("Did not solve. Try to run with more powerful executor ");
+            System.out.println("Did not solve. Try to run with more powerful executor  ");
         }
     }
     public static void main(String[] args) {
-        System.out.println("FifteenGamePuzzle started:");
+        System.out.println("FifteenGamePuzzle started:  ");
 
         FifteenPuzzle p = new FifteenPuzzle();
         p.shuffle(40);  // При большом значении > 40 не получилось получить стабильный результат из-за ограниченности в вычислительной мощности
-        System.out.println("Shuffled board:");
+        System.out.println("Shuffled board:  ");
         p.show();
 
         List<FifteenPuzzle> solution;
 
-        System.out.println("Solving with A*");
+        System.out.println("Solving with A*  ");
         solution = p.aStarSolve();
         showSolution(solution);
 
