@@ -1,19 +1,21 @@
-package org.example.moex_parser;
+package org.example.MoexParser;
+
 import java.io.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
 
 public class DataProcessor {
     private static final List<String> supportedMarkets = List.of("TQBR", "FQBR");
-    private static final String fileName = "/home/daniil/IdeaProjects/SpecialCurse/src/main/resources/trades.txt";
 
-    public TickersMap getProcessor() {
+    public TickersMap getTickersMap(String fileName) throws FileNotFoundException {
         // Open the file
         FileInputStream stream;
         try {
             stream = new FileInputStream(fileName);
-
         } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+            throw new FileNotFoundException("File not found");
         }
 
         BufferedReader br = new BufferedReader(new InputStreamReader(stream));
@@ -28,11 +30,10 @@ public class DataProcessor {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
         return tickersProcessor;
     }
 
-    public void showResults(TickersMap tickersProcessor){
+    public void showResults(TickersMap tickersProcessor) {
         // Show results
         System.out.println("Best tickers are: ");
         tickersProcessor.showBest(10);
@@ -40,30 +41,31 @@ public class DataProcessor {
         tickersProcessor.showWorst(10);
 //        tickersProcessor.showAll();
     }
+
     //TODO: Вынести в отдельный класс ТикерсМэп
-    private static class TickersMap {
-        HashMap<String, tickerInfo> tickersMap = new HashMap<>();
+    public static class TickersMap {
+        HashMap<String, TickerInfo> tickersMap = new HashMap<>();
 
         public void put(String fileLine) {
-            tickerInfo buff = new tickerInfo();
-            buff.ParseFileLine(fileLine);
+            TickerInfo buff = new TickerInfo();
+            buff.parseFileLine(fileLine);
             String lineTicker = buff.ticker;
             String lineMarket = buff.market;
             if (!supportedMarkets.contains(lineMarket)) {
                 return;
             }
-            tickerInfo ticketInstance;
+            TickerInfo ticketInstance;
             if (!tickersMap.containsKey(lineTicker)) {
-                ticketInstance = new tickerInfo();
+                ticketInstance = new TickerInfo();
             } else {
                 ticketInstance = tickersMap.get(lineTicker);
             }
-            ticketInstance.ParseFileLine(fileLine);
+            ticketInstance.parseFileLine(fileLine);
             tickersMap.put(ticketInstance.ticker, ticketInstance);
         }
 
         public void showBest(int numberBest) {
-            List<tickerInfo> values = new ArrayList<>(tickersMap.values());
+            List<TickerInfo> values = new ArrayList<>(tickersMap.values());
             Collections.sort(values);
             Collections.reverse(values);
             for (int i = 0; i < Integer.min(numberBest, values.size()); i++) {
@@ -72,17 +74,10 @@ public class DataProcessor {
         }
 
         public void showWorst(int numberBest) {
-            List<tickerInfo> values = new ArrayList<>(tickersMap.values());
+            List<TickerInfo> values = new ArrayList<>(tickersMap.values());
             Collections.sort(values);
             for (int i = 0; i < Integer.min(numberBest, values.size()); i++) {
                 System.out.println(values.get(i));
-            }
-        }
-
-        public void showAll() {
-            List<tickerInfo> values = new ArrayList<>(tickersMap.values());
-            for (tickerInfo value : values) {
-                System.out.println(value);
             }
         }
     }

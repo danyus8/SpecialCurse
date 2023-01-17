@@ -1,8 +1,8 @@
-package org.example.moex_parser;
+package org.example.MoexParser;
 
 import org.jetbrains.annotations.NotNull;
 
-class tickerInfo implements Comparable<tickerInfo> {
+class TickerInfo implements Comparable<TickerInfo> {
     String ticker;
     String market;
     Double minPrice;
@@ -13,7 +13,7 @@ class tickerInfo implements Comparable<tickerInfo> {
     Double lastDate;
     Double tradeAmount;
 
-    public void ParseFileLine(@NotNull String line) {
+    public void parseFileLine(@NotNull String line) {
         var data = line.split("\t");
 //            int tradeNumber = Integer.parseInt(data[0]);
         double date = Double.parseDouble(data[1]);
@@ -69,7 +69,7 @@ class tickerInfo implements Comparable<tickerInfo> {
     }
 
     @Override
-    public int compareTo(@NotNull tickerInfo otherTicker) {
+    public int compareTo(@NotNull TickerInfo otherTicker) {
         return Double.compare(getIncrement(), otherTicker.getIncrement());
     }
 

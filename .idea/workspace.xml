@@ -5,7 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="768d950f-4bc2-461d-9528-7f700b765f47" name="Changes" comment="Сделал пятнашки">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/BinarySearch/BinarySearch.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/BinarySearchTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/FifteenGameTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/MoexParserTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/another_task/another_task.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/gameFifteen/FifteenPuzzle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/gameFifteen/FifteenPuzzle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/moex_parser/DataProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/MoexParser/DataProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/moex_parser/moex_parser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/moex_parser/tickerInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/MoexParser/TickerInfo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,18 +52,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test/java" />
       <recent name="$PROJECT_DIR$/src/main/java/org/example/moex_parser" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
@@ -62,6 +76,140 @@
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="org.example" />
     </key>
+  </component>
+  <component name="RunManager" selected="JUnit.MoexParserTest">
+    <configuration default="true" type="Application" factoryName="Application">
+      <module name="SpecialCurse" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BinarySearchTests" type="JUnit" factoryName="JUnit">
+      <module name="SpecialCurse" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="corretto-18" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="BinarySearchTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="wholeProject" />
+      </option>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MoexParserTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SpecialCurse" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="corretto-18" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="MoexParserTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="wholeProject" />
+      </option>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MoexParserTest._getMoexData_when_provided_wrong_file_name" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SpecialCurse" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="corretto-18" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="MoexParserTest" />
+      <option name="METHOD_NAME" value="_getMoexData_when_provided_wrong_file_name" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="wholeProject" />
+      </option>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MoexParserTest.getMoexData_when_provided_long_file" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SpecialCurse" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="corretto-18" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="MoexParserTest" />
+      <option name="METHOD_NAME" value="getMoexData_when_provided_long_file" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="wholeProject" />
+      </option>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MoexParserTest.processMoexData_when_provided_file_is_long" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SpecialCurse" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="corretto-18" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="MoexParserTest" />
+      <option name="METHOD_NAME" value="processMoexData_when_provided_file_is_long" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="wholeProject" />
+      </option>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MoexParserTest.processMoexData_when_provided_file_is_short" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SpecialCurse" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="corretto-18" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="MoexParserTest" />
+      <option name="METHOD_NAME" value="processMoexData_when_provided_file_is_short" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="wholeProject" />
+      </option>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <module name="SpecialCurse" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="corretto-18" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="wholeProject" />
+      </option>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Java Scratch">
+      <shortenClasspath name="NONE" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.BinarySearchTests" />
+      <item itemvalue="JUnit.MoexParserTest" />
+      <item itemvalue="JUnit.MoexParserTest._getMoexData_when_provided_wrong_file_name" />
+      <item itemvalue="JUnit.MoexParserTest.getMoexData_when_provided_long_file" />
+      <item itemvalue="JUnit.MoexParserTest.processMoexData_when_provided_file_is_long" />
+      <item itemvalue="JUnit.MoexParserTest.processMoexData_when_provided_file_is_short" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.MoexParserTest" />
+        <item itemvalue="JUnit.MoexParserTest.getMoexData_when_provided_long_file" />
+        <item itemvalue="JUnit.MoexParserTest._getMoexData_when_provided_wrong_file_name" />
+        <item itemvalue="JUnit.MoexParserTest.processMoexData_when_provided_file_is_long" />
+        <item itemvalue="JUnit.MoexParserTest.processMoexData_when_provided_file_is_short" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -220,6 +368,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Short Data prepared" />
     <MESSAGE value="Draft Version:&#10;-- Реализовано чтение&#10;-- Реализован аналог датакласса&#10;-- Реализован враппер в виде хэшмапы на этот аналог&#10;--&#10;&#10;Не реализовано: &#10;-- Вывод лучших акций. &#10;-- Нет проверки на то, что облигации малину не портят (возможно колонки замиксовались)" />
     <MESSAGE value="Реализовано:&#10;-- Компаратор&#10;-- Вывод лучших акций&#10;-- Вывод худших &#10;Не реализовано:&#10;-- Нет проверки на то, что облигации малину не портят (возможно колонки замиксовались)" />
@@ -241,6 +390,11 @@
           <properties class="java.lang.NumberFormatException" package="java.lang" />
           <option name="timeStamp" value="21" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/MoexParser/DataProcessor.java</url>
+          <line>17</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

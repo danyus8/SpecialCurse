@@ -9,20 +9,20 @@ import java.util.PriorityQueue;
 
 public class FifteenPuzzle {
 
-    private static class TilePos {
+    private static class TilePosition {
         public int x;
         public int y;
 
-        public TilePos(int x, int y) {
+        public TilePosition(int x, int y) {
             this.x=x;
             this.y=y;
         }
 
     }
-    public final static int DIMS=3;
+    public final static int DIMS=4;
     private final int[][] tiles;
     private final int display_width;
-    private TilePos blank;
+    private TilePosition blank;
 
     public FifteenPuzzle() {
         tiles = new int[DIMS][DIMS];
@@ -36,7 +36,7 @@ public class FifteenPuzzle {
         display_width=Integer.toString(cnt).length();
 
         // init blank
-        blank = new TilePos(DIMS - 1, DIMS - 1);
+        blank = new TilePosition(DIMS - 1, DIMS - 1);
         tiles[blank.x][blank.y]=0;
     }
 
@@ -45,36 +45,36 @@ public class FifteenPuzzle {
 
     public FifteenPuzzle(FifteenPuzzle toClone) {
         this();  // chain to basic init
-        for(TilePos p: allTilePos()) {
-            tiles[p.x][p.y] = toClone.tile(p);
+        for(TilePosition position : allTilePositions()) {
+            tiles[position.x][position.y] = toClone.tile(position);
         }
         blank = toClone.getBlank();
     }
 
-    public List<TilePos> allTilePos() {
-        ArrayList<TilePos> out = new ArrayList<>();
+    public List<TilePosition> allTilePositions() {
+        ArrayList<TilePosition> out = new ArrayList<>();
         for(int i=0; i<DIMS; i++) {
             for(int j=0; j<DIMS; j++) {
-                out.add(new TilePos(i, j));
+                out.add(new TilePosition(i, j));
             }
         }
         return out;
     }
 
 
-    public int tile(TilePos p) {
-        return tiles[p.x][p.y];
+    public int tile(TilePosition position) {
+        return tiles[position.x][position.y];
     }
 
 
-    public TilePos getBlank() {
+    public TilePosition getBlank() {
         return blank;
     }
 
-    public TilePos whereIs(int x) {
-        for(TilePos p: allTilePos()) {
-            if( tile(p) == x ) {
-                return p;
+    public TilePosition whereIs(int x) {
+        for(TilePosition position : allTilePositions()) {
+            if( tile(position) == x ) {
+                return position;
             }
         }
         return null;
@@ -83,8 +83,8 @@ public class FifteenPuzzle {
     @Override
     public boolean equals(Object o) {
         if(o instanceof FifteenPuzzle) {
-            for(TilePos p: allTilePos()) {
-                if( this.tile(p) != ((FifteenPuzzle) o).tile(p)) {
+            for(TilePosition position : allTilePositions()) {
+                if( this.tile(position) != ((FifteenPuzzle) o).tile(position)) {
                     return false;
                 }
             }
@@ -96,8 +96,8 @@ public class FifteenPuzzle {
     @Override
     public int hashCode() {
         int out=0;
-        for(TilePos p: allTilePos()) {
-            out= (out*DIMS*DIMS) + this.tile(p);
+        for(TilePosition position : allTilePositions()) {
+            out= (out*DIMS*DIMS) + this.tile(position);
         }
         return out;
     }
@@ -125,53 +125,53 @@ public class FifteenPuzzle {
     }
 
 
-    public List<TilePos> allValidMoves() {
-        ArrayList<TilePos> out = new ArrayList<>();
+    public List<TilePosition> allValidMoves() {
+        ArrayList<TilePosition> out = new ArrayList<>();
         for(int dx=-1; dx<2; dx++) {
             for(int dy=-1; dy<2; dy++) {
-                TilePos tp = new TilePos(blank.x + dx, blank.y + dy);
-                if( isValidMove(tp) ) {
-                    out.add(tp);
+                TilePosition tilePosition = new TilePosition(blank.x + dx, blank.y + dy);
+                if( isValidMove(tilePosition) ) {
+                    out.add(tilePosition);
                 }
             }
         }
         return out;
     }
 
-    public boolean isValidMove(TilePos p) {
-        if( ( p.x < 0) || (p.x >= DIMS) ) {
+    public boolean isValidMove(TilePosition position) {
+        if( ( position.x < 0) || (position.x >= DIMS) ) {
             return false;
         }
-        if( ( p.y < 0) || (p.y >= DIMS) ) {
+        if( ( position.y < 0) || (position.y >= DIMS) ) {
             return false;
         }
-        int dx = blank.x - p.x;
-        int dy = blank.y - p.y;
+        int dx = blank.x - position.x;
+        int dy = blank.y - position.y;
         return (Math.abs(dx) + Math.abs(dy) == 1) && (dx * dy == 0);
     }
 
 
-    public void move(TilePos p) {
-        if( !isValidMove(p) ) {
+    public void move(TilePosition position) {
+        if( !isValidMove(position) ) {
             throw new RuntimeException("Invalid move");
         }
         assert tiles[blank.x][blank.y]==0;
-        tiles[blank.x][blank.y] = tiles[p.x][p.y];
-        tiles[p.x][p.y]=0;
-        blank = p;
+        tiles[blank.x][blank.y] = tiles[position.x][position.y];
+        tiles[position.x][position.y]=0;
+        blank = position;
     }
 
-    public FifteenPuzzle moveClone(TilePos p) {
+    public FifteenPuzzle moveClone(TilePosition position) {
         FifteenPuzzle out = new FifteenPuzzle(this);
-        out.move(p);
+        out.move(position);
         return out;
     }
 
-    public void shuffle(int howmany) {
-        for(int i=0; i<howmany; i++) {
-            List<TilePos> possible = allValidMoves();
+    public void shuffle(int shuffleAmount) {
+        for(int i = 0; i< shuffleAmount; i++) {
+            List<TilePosition> possible = allValidMoves();
             int which =  (int) (Math.random() * possible.size());
-            TilePos move = possible.get(which);
+            TilePosition move = possible.get(which);
             this.move(move);
         }
     }
@@ -196,12 +196,12 @@ public class FifteenPuzzle {
 
     public int manhattanDistance() {
         int sum=0;
-        for(TilePos p: allTilePos()) {
-            int val = tile(p);
+        for(TilePosition position : allTilePositions()) {
+            int val = tile(position);
             if( val > 0 ) {
-                TilePos correct = SOLVED.whereIs(val);
-                sum += Math.abs( correct.x = p.x );
-                sum += Math.abs( correct.y = p.y );
+                TilePosition correct = SOLVED.whereIs(val);
+                sum += Math.abs( correct.x = position.x );
+                sum += Math.abs( correct.y = position.y );
             }
         }
         return sum;
@@ -210,13 +210,13 @@ public class FifteenPuzzle {
 
     public List<FifteenPuzzle> allAdjacentPuzzles() {
         ArrayList<FifteenPuzzle> out = new ArrayList<>();
-        for( TilePos move: allValidMoves() ) {
+        for( TilePosition move: allValidMoves() ) {
             out.add( moveClone(move) );
         }
         return out;
     }
 
-    public List<FifteenPuzzle> aStarSolve() {
+    public List<FifteenPuzzle> Solver() {
         HashMap<FifteenPuzzle,FifteenPuzzle> predecessor = new HashMap<>();
         HashMap<FifteenPuzzle,Integer> depth = new HashMap<>();
         final HashMap<FifteenPuzzle,Integer> score = new HashMap<>();
@@ -269,17 +269,17 @@ public class FifteenPuzzle {
         }
     }
     public static void main(String[] args) {
-        System.out.println("FifteenGamePuzzle started:  ");
-
+        // set
         FifteenPuzzle p = new FifteenPuzzle();
+
         p.shuffle(40);  // При большом значении > 40 не получилось получить стабильный результат из-за ограниченности в вычислительной мощности
-        System.out.println("Shuffled board:  ");
         p.show();
 
+        // solve
         List<FifteenPuzzle> solution;
+        solution = p.Solver();
 
-        System.out.println("Solving with A*  ");
-        solution = p.aStarSolve();
+        //result
         showSolution(solution);
 
     }
