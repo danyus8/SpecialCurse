@@ -1,157 +1,114 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.concurrent.ThreadLocalRandom;
-
-import lombok.Builder;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.RepeatedTest;
-import org.junit.jupiter.api.RepetitionInfo;
 import org.junit.jupiter.api.Test;
-
 import org.example.BinarySearch.BinarySearch;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 
 public class BinarySearchTest {
-    private static final int REPETITIONS = 100;
 
     @Test
-    @DisplayName("BinarySearch works for empty arrays.")
-    void BinarySearchTest_when_EmptyArray_then_NotFound(){
-        //prepare
-        var array = new int[0];
-        var element = 0;
+    public void testSmallerElement() {
+        int[] array = {1, 3, 5, 7, 9};
+        int element = -1;
+        int expectedIndex = -1;
 
-        //act
-        var result = BinarySearch.find(array, element);
+        int result = BinarySearch.find(array, element);
 
-        //assert
-        assertEquals(-1, result);
+        assertEquals(expectedIndex, result);
     }
-
     @Test
-    @DisplayName("BinarySearch works for one-element arrays.")
-    void BinarySearchTest_when_OnlyTargetInArray_then_FoundTarget(){
-        //prepare
-        var element = ThreadLocalRandom.current().nextInt();
-        var array = new int[]{element};
+    public void testLargerElement() {
+        int[] array = {1, 3, 5, 7, 9};
+        int element = 11;
+        int expectedIndex = -1;
 
-        //act
-        var result = BinarySearch.find(array, element);
+        int result = BinarySearch.find(array, element);
 
-        //assert
-        assertEquals(0, result);
+        assertEquals(expectedIndex, result);
     }
-
     @Test
-    @DisplayName("BinarySearch works for same values in arrays.")
-    void BinarySearchTest_when_SameElementsInArray_then_FoundAnyTarget(){
-        //prepare
-        var element = 4;
-        var sameValues = new SortedArray.SameValues(5, element);
-        var array = SortedArray.builder().sameValues(sameValues).build().createArray();
+    public void testEmptyArray() {
+        int[] array = {};
+        int element = 5;
+        int expectedIndex = -1;
 
-        //act
-        var result = BinarySearch.find(array, element);
+        int result = BinarySearch.find(array, element);
 
-        //assert
-        assertEquals(element, array[result]);
-    }
-
-    @RepeatedTest(REPETITIONS)
-    @DisplayName("BinarySearch works for random arrays and finds element.")
-    void BinarySearchTest_when_SortedArray_then_FindTarget(RepetitionInfo repetitionInfo){
-        //prepare
-        var array = SortedArray.builder().distinct(true).build().createArray();
-        var index = randomIndexFromArray(array);
-        var element = array[index];
-        //act
-        var result = BinarySearch.find(array, element);
-
-        //assert
-        assertTrue(result > -1);
+        assertEquals(expectedIndex, result);
     }
 
     @Test
-    @DisplayName("BinarySearch works for elements that do not exist in arrays and returns -1.")
-    void BinarySearchTest_when_FindNonExistingElement_then_NotFound(){
-        //prepare
-        var array = SortedArray.builder()
-                .distinct(true)
-                .upperBound(Integer.MAX_VALUE - 1)
-                .build()
-                .createArray();
+    public void testNegativeNumbers() {
+        int[] array = {-9, -5, 0, 2, 7};
+        int element = -5;
+        int expectedIndex = 1;
 
-        var element = Integer.MAX_VALUE;
+        int result = BinarySearch.find(array, element);
 
-        //act
-        var result = BinarySearch.find(array, element);
+        assertEquals(expectedIndex, result);
+    }
+    @Test
+    public void testSuccessfulSearch() {
+        int[] array = {1, 3, 5, 7, 9};
+        int element = 5;
+        int expectedIndex = 2;
 
-        //assert
-        assertEquals(-1, result);
+        int result = BinarySearch.find(array, element);
+
+        assertEquals(expectedIndex, result);
+    }
+    @Test
+    public void testEvenNumberOfElements() {
+        int[] array = {1, 2, 3, 4};
+        int element = 4;
+        int expectedIndex = 3;
+
+        int result = BinarySearch.find(array, element);
+
+        assertEquals(expectedIndex, result);
     }
 
-    @RepeatedTest(REPETITIONS)
-    @DisplayName("Check binary search for random arrays and finds correct position.")
-    void BinarySearchTest_when_SortedArray_then_FindCorrectPosition(RepetitionInfo repetitionInfo){
-        //prepare
-        var array = SortedArray.builder().distinct(true).build().createArray();
-        var randIndex = randomIndexFromArray(array);
-        var element = array[randIndex];
-        //act
-        var actualResult = BinarySearch.find(array, element);
+    @Test
+    public void testUnsuccessfulSearch() {
+        int[] array = {1, 3, 5, 7, 9};
+        int element = 4;
+        int expectedIndex = -1;
 
-        //assert
-        assertEquals(randIndex, actualResult);
+        int result = BinarySearch.find(array, element);
+
+        assertEquals(expectedIndex, result);
+    }
+    @Test
+    public void testOddNumberOfElements() {
+        int[] array = {1, 2, 3, 4, 5};
+        int element = 1;
+        int expectedIndex = 0;
+
+        int result = BinarySearch.find(array, element);
+
+        assertEquals(expectedIndex, result);
+    }
+    @Test
+    public void testAllSameElements() {
+        int[] array = {3, 3, 3, 3, 3};
+        int element = 3;
+        int expectedIndex = 2;
+
+        int result = BinarySearch.find(array, element);
+
+        assertEquals(expectedIndex, result);
     }
 
-    @Builder(toBuilder = true)
-    static class SortedArray {
-        private Integer sizeLimit;
-        @Builder.Default private int upperBound = Integer.MAX_VALUE;
-        @Builder.Default private boolean distinct = false;
-        @Builder.Default private SameValues sameValues = new SameValues(0, 0);
-
-
-        private int[] createArray() {
-            //calculate size
-            var size = sizeLimit == null
-                    ? ThreadLocalRandom.current().nextInt(10, 100)
-                    : sizeLimit - sameValues.count();
-
-            var ints = new ArrayList<Integer>(size);
-
-            // add rand values
-            for (int i = 0; i < size; i++) {
-                ints.add(ThreadLocalRandom.current().nextInt(upperBound));
-            }
-
-            //add same values
-            for (int i = 0; i < sameValues.count(); i++) {
-                ints.add(sameValues.value());
-            }
-
-            //sort
-            Collections.sort(ints);
-
-            var stream = ints.stream().mapToInt(i -> i);
-
-            //make distinct array
-            if (distinct) {
-                return stream.distinct().toArray();
-            }
-            return stream.toArray();
+    @Test
+    public void testLargeArray() {
+        int[] array = new int[1000000];
+        for (int i = 0; i < 1000000; i++) {
+            array[i] = i;
         }
+        int element = 999999;
+        int expectedIndex = 999999;
 
-        record SameValues(
-                int count,
-                int value
-        ){}
-    }
+        int result = BinarySearch.find(array, element);
 
-    private int randomIndexFromArray(int[] array) {
-        return ThreadLocalRandom.current().nextInt(0, array.length);
+        assertEquals(expectedIndex, result);
     }
 }
